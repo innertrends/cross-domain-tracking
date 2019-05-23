@@ -11,13 +11,15 @@ Location: Website or Landing pages, when they are on a different domain than the
 
 2. Add the following code to the web app source code
 
-```<script>
+```
+<script>
     var dataLayer = dataLayer||[];
     window.addEventListener('message', function (e) {
             dataLayer.push(JSON.parse(e.data))
     });
 </script>
 
-<iframe id="ifrm" src="https://www.website.domain/tsframe.html" with="1" height="1"></iframe>```
+<iframe id="ifrm" src="https://www.website.domain/tsframe.html" with="1" height="1"></iframe>
+```
 
 **Important:** Replace www.website.domain with your website domain where you hosted the tsframe.html file.
