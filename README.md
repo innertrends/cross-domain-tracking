@@ -4,12 +4,16 @@ Web apps that are hosted on a different domain than the website or the landing p
 
 Please follow these 2 steps in order to enable cross domain tracking:
 
-1. Host the following file tsframe.html on the root of your website
+1. Host the following file on the root of your website:
+
+```
+https://raw.githubusercontent.com/innertrends/cross-domain-tracking/master/tsframe.html
+```
 
 Location: Website or Landing pages, when they are on a different domain than the application.
 
 
-2. Add the following code to the web app source code
+2. Add the following code to the web app source code, in the **header** or above the InnerTrends code.
 
 ```
 <script>
