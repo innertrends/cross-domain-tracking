@@ -10,7 +10,7 @@ Please follow these 2 steps in order to enable cross domain tracking:
 https://raw.githubusercontent.com/innertrends/cross-domain-tracking/master/tsframe.html
 ```
 
-eg. If your website or landing pages domain name is www.website.domain, the file will be hosted at https://www.website.domain/tsframe.html.
+**Important:**  If your website or landing pages domain name is www.website.domain, the file will be hosted at https://www.website.domain/tsframe.html.
 
 
 2. Add the following code to the web app source code, in the **header** or above the InnerTrends code.
