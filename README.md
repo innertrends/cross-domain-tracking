@@ -23,7 +23,7 @@ https://raw.githubusercontent.com/innertrends/cross-domain-tracking/master/tsfra
     });
 </script>
 
-<iframe id="ifrm" src="https://www.website.domain/tsframe.html" with="1" height="1"></iframe>
+<iframe id="ifrm" src="https://www.website.domain/tsframe.html" width="0" height="0" frameborder="0"></iframe>
 ```
 
 **Important:** Replace www.website.domain with your website domain where you hosted the tsframe.html file.
