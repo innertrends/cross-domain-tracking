@@ -2,75 +2,17 @@
 <head>
     <script>
         
-        function setCookie(name, value, days, domain) {
-        if (!domain)
-            domain = innr_top_domain();
-        if (days) {
-            var date = new Date;
-            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1E3);
-            var expires = "; expires=" + date.toGMTString()
-        } else
-            var expires = "";
-        document.cookie = name + "=" + value + expires + ";domain="
-                + domain + "; path=/; samesite=lax"
-        }
-
-        function getCookie(cname) { 
-            var name = cname + "="; 
-            var ca = document.cookie.split(';'); 
-            for(var i = 0 ; i < ca.length ; i++) { 
-            var c = ca[i]; 
-            while (c.charAt(0)==' ') { 
-                c = c.substring(1); 
-            } 
-                if (c.indexOf(name) === 0) { 
-                    return c.substring(name.length,c.length); 
-                } 
-            } 
-            return ""; 
-        } 
-
-        function innr_top_domain(){
-            var i,h,
-                wInner_cookie='wInnr_get_top_level_domain=cookie',
-                hostname = document.location.hostname.split('.');
-            for(i=hostname.length-1; i>=0; i--) {
-                h = hostname.slice(i).join('.');
-                document.cookie = wInner_cookie + ';domain=.' + h + ';';
-                if(document.cookie.indexOf(wInner_cookie)>-1){
-                document.cookie = wInner_cookie.split('=')[0] + '=;domain=.' + h + ';expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-                return h;
-                }
-            }
-        }
- 
-        
         var _itluid = "";
-
-        if (getCookie("__itluid") === null)
+        if (localStorage.getItem('__itluid') === null)
         {
-            if (localStorage.getItem('_itluid') === null)
-            {
-                _itluid = Math.floor((1 + Math.random()) * 0x100000000).toString(16).substring(1)+"-"+Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)+"-"+Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)+"-"+Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)+"-"+Math.floor((1 + Math.random()) * 0x1000000000000).toString(16).substring(1);
-                setCookie('__itluid', _itluid,180);
-                localStorage.setItem('__itluid',_itluid);
-            }
-            else
-            {
-                _itluid = localStorage.getItem('_itluid');
-                setCookie('__itluid', _itluid,180);
-            }
+            _itluid = Math.floor((1 + Math.random()) * 0x100000000).toString(16).substring(1)+"-"+Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)+"-"+Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)+"-"+Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)+"-"+Math.floor((1 + Math.random()) * 0x1000000000000).toString(16).substring(1);
+            localStorage.setItem('__itluid',_itluid);
         }
-        else
+        else 
         {
-            if (localStorage.getItem('_itluid') === null || localStorage.getItem('_itluid') != getCookie("__itluid"))
-            {
-                _itluid = getCookie("__itluid");
-                localStorage.setItem('__itluid',_itluid);
-            }
+            _itluid = localStorage.getItem('__itluid');
         }
         
-        if (_itluid === "") _itluid = getCookie("__itluid") || localStorage.getItem('_itluid') || "";
         if (_itluid !== "")  window.top.postMessage(JSON.stringify({ "__itluid": _itluid }), "*");       
     </script>
 </head>
